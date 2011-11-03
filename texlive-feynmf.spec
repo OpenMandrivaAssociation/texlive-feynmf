@@ -1,3 +1,9 @@
+# revision 17259
+# category Package
+# catalog-ctan /macros/latex/contrib/feynmf
+# catalog-date 2010-03-01 15:04:13 +0100
+# catalog-license gpl
+# catalog-version 1.08
 Name:		texlive-feynmf
 Version:	1.08
 Release:	1
@@ -68,6 +74,7 @@ determined.
 %doc %{_texmfdistdir}/source/latex/feynmf/feynmp.drv
 %doc %{_texmfdistdir}/source/latex/feynmf/fmfman.drv
 %doc %{_texmfdistdir}/source/latex/feynmf/fmfmanps.drv
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -78,3 +85,5 @@ determined.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar metafont metapost tex doc source %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
