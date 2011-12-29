@@ -18,9 +18,6 @@ BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
-Conflicts:	texlive-texmf <= 20110705-3
-Conflicts:	texlive-doc <= 20110705-3
-Conflicts:	texlive-source <= 20110705-3
 
 %description
 The feynmf package provides an interface to MetaFont (inspired
@@ -32,20 +29,12 @@ it could in principle be used for diagrams in graph and similar
 theories, where the structure is semi-algorithmically
 determined.
 
-%pre
-    %_texmf_mktexlsr_pre
-
 %post
-    %_texmf_mktexlsr_post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_pre
-    fi
+    %{_sbindir}/texlive.post
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
@@ -75,7 +64,6 @@ determined.
 %doc %{_texmfdistdir}/source/latex/feynmf/feynmp.drv
 %doc %{_texmfdistdir}/source/latex/feynmf/fmfman.drv
 %doc %{_texmfdistdir}/source/latex/feynmf/fmfmanps.drv
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -86,5 +74,3 @@ determined.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar metafont metapost tex doc source %{buildroot}%{_texmfdistdir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
