@@ -6,7 +6,7 @@
 # catalog-version 1.08
 Name:		texlive-feynmf
 Version:	1.08
-Release:	2
+Release:	3
 Summary:	Macros and fonts for creating Feynman (and other) diagrams
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/feynmf
