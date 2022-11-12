@@ -1,19 +1,13 @@
-# revision 17259
-# category Package
-# catalog-ctan /macros/latex/contrib/feynmf
-# catalog-date 2010-03-01 15:04:13 +0100
-# catalog-license gpl
-# catalog-version 1.08
 Name:		texlive-feynmf
-Version:	1.08
-Release:	11
+Version:	17259
+Release:	1
 Summary:	Macros and fonts for creating Feynman (and other) diagrams
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/feynmf
 License:	GPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/feynmf.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/feynmf.doc.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/feynmf.source.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/feynmf.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/feynmf.doc.r%{version}.tar.xz
+Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/feynmf.source.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -30,12 +24,12 @@ theories, where the structure is semi-algorithmically
 determined.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -67,24 +61,11 @@ determined.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1 -a2
+%setup -c -a1 -a2
+%autopatch -p1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar metafont metapost tex doc source %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.08-2
-+ Revision: 751832
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 1.08-1
-+ Revision: 718428
-- texlive-feynmf
-- texlive-feynmf
-- texlive-feynmf
-- texlive-feynmf
-
