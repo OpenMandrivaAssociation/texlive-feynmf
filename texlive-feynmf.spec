@@ -1,6 +1,6 @@
 Name:		texlive-feynmf
 Version:	17259
-Release:	1
+Release:	2
 Summary:	Macros and fonts for creating Feynman (and other) diagrams
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/feynmf
