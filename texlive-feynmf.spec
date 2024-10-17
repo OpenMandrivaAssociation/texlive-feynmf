@@ -3,7 +3,7 @@ Version:	17259
 Release:	2
 Summary:	Macros and fonts for creating Feynman (and other) diagrams
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/feynmf
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/feynmf
 License:	GPL
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/feynmf.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/feynmf.doc.r%{version}.tar.xz
